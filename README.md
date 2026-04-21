@@ -50,17 +50,19 @@ repo: `webapp-react`
 
 - **📁 Pages** `./src/pages`
   <br>*This will be a multipage app, but for now we only implement theese two pages*
-- **MoviesHome** `./src/pages/MoviesHome` *The home/landing page, where we will display the list of movies* <br> - Necessary components: `??` <br> - Export to be used in `App.jsx`
+- **MoviesHome** `./src/pages/MoviesHome` *The home/landing page, where we will display the list of movies* <br> - Necessary components: `MoviesListCardDeck.jsx` <br> - Export to be used in `App.jsx`
 - **MovieDetails** `./src/pages/MovieDetails` *The movie detail page, where we will show information about a single movie* <br> - Necessary components: `useEffect` and `useParams` (React hooks) <br> - Export to be used in `App.jsx`
 
 - **📁 Components** `./src/components`
 - **AppHeader** `./src/components/AppHeader` *The header of the app, containing the navbar* <br> - Necessary components: `AppHeaderNavbar.jsx` <br> - Export to be used in `DefaultLayout.jsx`
 - **AppHeaderNavbar** `./src/components/AppHeaderNavbar` *The navbar of the app (made with Bootstrap)* <br> - Necessary components: `??` <br> - Export to be used in `AppHeader.jsx` 
 - **AppFooter** `./src/components/AppFooter` *The footer of the app* <br> - Necessary components: `??` <br> - Export to be used in `DefaultLayout.jsx`
-- **MoviesListCard** `./src/components/MoviesListCard` *A card component to display movie information in the movies list*
-- **MovieReviewCard** `./src/components/MovieReviewCard` *A card component to display review information in the movie detail page*
+- **MoviesListCardDeck** `./src/components/MoviesListCardDeck` *A card component to display the movies list* <br> - Necessary components: `MoviesListCard.jsx` <br> - Export to be used in `MoviesHome.jsx`
+- **MoviesListCard** `./src/components/MoviesListCard` *A card component to display movie information in the movies list* <br> - Necessary components: `??` <br> - Export to be used in `MovieListCardDeck.jsx`
+- **MovieReviewCardDeck** `./src/components/MovieReviewCardDeck` *A card component to display reviews in the movie detail page* <br> - Necessary components: `MovieReviewCard.jsx` <br> - Export to be used in `MovieDetails.jsx`
+- **MovieReviewCard** `./src/components/MovieReviewCard` *A card component to display review information in the movie detail page* <br> - Necessary components: `??` <br> - Export to be used in `MovieReviewCardDeck.jsx`
 - **📁 Layouts** `./src/layouts`
-<br>*For now we just need oneto mount header and footer in the home/landing page (and so in all its childrens pages)*
+<br>*For now we just need one to mount header and footer in the home/landing page (and so in all its childrens pages)*
 - **DefaultLayout** `./src/layouts/DefaultLayout` *The default layout of the app, containing the header and the footer* <br> - Necessary components: `AppHeader`, `AppFooter`, `Outlet` <br> - Export to be used in `App.jsx`
 
 ### For each page/component:

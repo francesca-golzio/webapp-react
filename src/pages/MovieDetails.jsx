@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+/* Import components */
+import MovieReviewCardDeck from "../components/MovieReviewCardDeck";
 
 export default function MovieDetails() {
   /* Destructure the dynamic id parameter from the URL usinguseParams() */
@@ -12,8 +14,13 @@ export default function MovieDetails() {
 
   return (
     <div>
-      <h1>Movie Details</h1>
-      <p>This is the movie number {id} details page.</p>
+      <section>
+        <div className="container-fluid p-5 bg-warning">
+          <h1>Movie {id} Details</h1>
+          <p>Here will go all the movie details, but the reviews</p>
+        </div>
+      </section>
+      <MovieReviewCardDeck />
     </div>
   )
 }

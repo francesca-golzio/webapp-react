@@ -1,3 +1,5 @@
+import MoviesListCardDeck from "../components/MoviesListCardDeck";
+
 export default function MoviesHome() {
 
   return (
@@ -10,7 +12,7 @@ export default function MoviesHome() {
         </p>
         <h3>What are you waiting for? <br />Go and share the <i className="bi bi-heart-fill"></i> for movies!</h3>
       </div>
-      <div>Here will go the movies list</div>
+      <MoviesListCardDeck />
     </>
   )
 }
