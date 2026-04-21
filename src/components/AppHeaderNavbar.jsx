@@ -4,7 +4,7 @@ export default function AppHeaderNavbar() {
     <div>
       <nav className="navbar navbar-expand-md navbar-light bg-light">
         <div className="container">
-          <a className="navbar-brand" href="#">Moovies Reviews</a>
+          <a className="navbar-brand" href="#">Movies Reviews</a>
           <button className="navbar-toggler d-lg-none"
             type="button"
             data-bs-toggle="collapse"
