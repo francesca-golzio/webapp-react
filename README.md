@@ -77,3 +77,16 @@ repo: `webapp-react`
 ### In `App.jsx`
   - Import and implement the necessary components (`DefaultLayout`, `MoviesHome`, `MovieDetails`, `React`, `BrowserRouter`, `Routes`, `Route`) and `React`
   - Set up the necessary `routes` and `route` (see [Configuring Routes](https://reactrouter.com/start/declarative/routing#configuring-routes))
+
+## MILESTONE 3
+***On the backend side, installing and configuring CORS middleware. On the frontend side (this project), make an AJAX request to fetch the movies list***
+
+In the backend repo `webapp-express`
+- **install CORS**, `npm i cors` *bash*
+- **import CORS** in `app.jsx` (server) `const cors = require('cors');`
+- **add**, in the same file, the **CORS middleware** to allow AJAX requests from this app to the database `app.use(cors());`
+
+In this repo
+*GOAL: implement an AJAX request fetching the movies list from the backend and print it in page*
+- Since we'll need to use or print theese data in multiple components (`MoviesListCard`, `MovieReviewCard`, ?? ) we **create a contex** (`MoviesContext`) to avoid props drilling.
+- Inside the context, we save the data and pass it to every children as key-value values; in the consumers (children who need some of those data) we import the custom hook `useMovies` and destructure the needed values so we can use them in our return.
