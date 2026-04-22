@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-/* mport context */
-import { MoviesProvider } from './src/context/MoviesContext';
+/* import context */
+import { MoviesProvider } from './context/MoviesContext';
 /* import components */
 import DefaultLayout from "./layouts/DefaultLayout";
 import MoviesHome from "./pages/MoviesHome";

@@ -1,7 +1,7 @@
 /* import context */
-import { useMovies } from '../src/context/MoviesContext';
+import { useMovies } from "../context/MoviesContext";
 /* import components */
-import MoviesListCard from "./MoviesListCard";
+//import MoviesListCard from "./MoviesListCard";
 
 export default function MoviesListCardDeck() {
 
@@ -9,30 +9,25 @@ export default function MoviesListCardDeck() {
   const { movies } = useMovies();
 
   return (
-    <>
-      <div className="container">
-        <div className="row">
-          {
-            /* Here the details from each movie on the list will be cycled and returned as a movie card */
-            function printMovieCards(movies) {
-
-              /* cycle inside the movies array */
-              movies.map(movie => {
-
-                return (
-                  /* return and print a list of movie cards */
-                  <div className="col-sm-6 col-md-4 col-lg-3 p-4">
-                    <MoviesListCard />
-                  </div>
-                )
-              })
-            }
-
-
-
-          }
-        </div>
+    <div className="container" key='card_deck'>
+      <div className="row justify-content-evenly my-3">
+        {
+          /* cycle inside the movies array */
+          movies.map(movie => {
+            const { id, title, genre, image, created_at, updated_at } = movie;
+            return (
+              <div className="card col-sm-12 col-md-4 col-lg-3 m-3 px-0" key={id}>
+                <img className="card-img-top" src={image} />
+                <div className="card-body">
+                  <div className="card-title">{title}</div>
+                  <div></div>
+                  {/* {updated_at ? <div>{updated_at}</div> : <div>{created_at}</div>} */}
+                </div>
+              </div>
+            )
+          })
+        }
       </div>
-    </>
+    </div>
   )
 }
