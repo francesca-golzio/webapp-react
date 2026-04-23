@@ -1,4 +1,4 @@
-21 / 04  / 26  -  Esercizio di oggi:
+21-22-23 / 04  / 26  -  Esercizio di oggi:
 # Setup Web App React
 
 repo: `webapp-react` 
@@ -31,10 +31,22 @@ Ora è il momento di prepararci al frontend della nostra Web App!
 - Configuriamo l'app di backend (repo `webapp-express`) a ricevere chiamate dalla nostra applicazione React, installando e impostando il middleware **CORS**
 - Proviamo quindi ad effettuare una chiamata Ajax dalla home del progetto React, per ottenere la lista dei libri
 
-### MILESTONE 4
+### MILESTONE 4 (BACKEND/FRONTEND)
 
 - In ultimo, effettuiamo una chiamata AJAX dalla pagina di dettaglio per ottenere il dettaglio di un singolo film, comprese le sue recensioni
+
+### MILESTONE 5 (BACKEND)
+
+- Predisponiamo un’API per **salvare nel database** una nuova recensione legata ad un film
+- Testiamola su postman e verifichiamo che nel DB venga effettivamente inserita una nuova recensione
+
+### MILESTONE 6 (FRONTEND)
+
+- Creiamo un componente che contenga il form per le recensioni
+- Inseriamo questo componente nella pagina di dettaglio del film
+- All’invio del form, la nuova recensione viene salvata sul database e visualizzata nella pagina, in fondo alle altre
 
 ### Bonus
 
 - Curare l’aspetto estetico della vostra applicazione
+- Inseriamo una validazione nel form di recensione
