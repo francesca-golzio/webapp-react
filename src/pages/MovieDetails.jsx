@@ -1,4 +1,4 @@
-import MovieReviewCard from "../components/MovieReviewCard";
+import MovieReviewCardDeck from "../components/MovieReviewCardDeck";
 import { useState, useEffect } from "react";
 /* get movie id from URL */
 import { useParams } from "react-router-dom";
@@ -23,7 +23,7 @@ export default function MovieDetails() {
 
   if (loading) {
     console.log('loading');
-    return <p>Loading</p> 
+    return <p>Loading</p>
   }
 
   /* Destructuring datas about the book */
@@ -42,10 +42,10 @@ export default function MovieDetails() {
           <p>{image}</p>
         </div>
       </section>
-      <div className="container my-4 mx-auto w100 reviews_container">
 
-        <MovieReviewCard />
-        {/* {
+      {/* <div className="container my-4 mx-auto w100 reviews_container"> */}
+      <MovieReviewCardDeck />
+      {/* {
           reviews?.map((review) => {
             const { movie_id, name, vote, text } = review;
             return (
@@ -62,7 +62,7 @@ export default function MovieDetails() {
         } */}
 
 
-      </div>
+      {/* </div> */}
     </div>
   )
 }

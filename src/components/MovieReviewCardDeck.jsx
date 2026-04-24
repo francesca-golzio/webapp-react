@@ -1,10 +1,10 @@
-//⚠️ component temporary dismissed
+import MovieReviewCard from "./MovieReviewCard"
 
-//import MovieReviewCard from "./MovieReviewCard"
-
-/* export default function MovieReviewCardDeck() {
+export default function MovieReviewCardDeck() {
 
   return (
-
+    <div className="container my-4 mx-auto w100 reviews_container">
+    <MovieReviewCard />
+    </div>
   )
-} */
+}
