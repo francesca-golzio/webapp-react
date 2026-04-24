@@ -1,12 +1,16 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
 const MoviesContext = createContext();
-const movieListAPI = import.meta.env.VITE_MOVIES_LIST_API
 
 function MoviesProvider({ children }) {
 
   /* Movies list state and setter */
   const [movies, setMovies] = useState([]);
+  /* Movie details state and setter */
+  const [details, setDetails] = useState({});
+  // const [loading, setLoading] = useState(true); // @todo ⚠️
+
+  const movieListAPI = import.meta.env.VITE_MOVIES_LIST_API
   /* Movies list fetch */
   useEffect(() => {
     fetch(movieListAPI)
@@ -15,11 +19,11 @@ function MoviesProvider({ children }) {
       .catch(err => console.log(err))
   }, []);
 
-  
+
 
   return (
     <MoviesContext.Provider
-      value={{ movies }}>
+      value={{ movies, details, setDetails }}>
       {children}
     </MoviesContext.Provider>
   )
