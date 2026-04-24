@@ -35,7 +35,7 @@ Ora è il momento di prepararci al frontend della nostra Web App!
 
 - ✅ Configuriamo l'app di backend a ricevere chiamate dalla nostra applicazione React (repo `webapp-react`), installando e impostando il middleware **CORS**
 - ✅ Proviamo quindi ad effettuare una chiamata Ajax dalla home del progetto React, per ottenere la lista dei libri
-- ✅ In ultimo, effettuiamo una chiamata AJAX dalla pagina di dettaglio per ottenere il dettaglio di un singolo film, comprese le sue recensioni
+- In ultimo, effettuiamo una chiamata AJAX dalla pagina di dettaglio per ottenere il dettaglio di un singolo film, comprese le sue recensioni
 
 ### MILESTONE 5 (BACKEND)
 

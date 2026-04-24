@@ -1,26 +1,69 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+/* get movie id from URL */
 import { useParams } from "react-router-dom";
-/* Import components */
-import MovieReviewCardDeck from "../components/MovieReviewCardDeck";
 
 export default function MovieDetails() {
   /* Destructure the dynamic id parameter from the URL usinguseParams() */
   const { id } = useParams();
+  /* Movie details state and setter */
+  const [details, setDetails] = useState({});
+  const [loading, setLoading] = useState(true);
 
+  /* Movies details fetch */
+  const movieDetailsAPI = (import.meta.env.VITE_MOVIE_DETAIL_API) // + /{id}
 
   useEffect(() => {
-    /* Here will go the logic to fetch movie details based on the id */
-  }, []);
+    fetch(movieDetailsAPI + '/' + id)
+      .then(res => res.json())
+      .then(data => setDetails(data))
+      .catch(err => console.error())
+      .finally(() => setLoading(false));
+  }, [id]);
+
+  if (loading) {
+    console.log('loading');
+    return <p>Loading</p>
+  }
+
+  /* Destructuring datas about the book */
+  let { title, director, genre, release_year, abstract, image, reviews = [] } = details;
+  console.log(title, director, genre, release_year, abstract, image, reviews);
+
+
 
   return (
-    <div>
+    <div key={id + title}>
+
       <section>
         <div className="container-fluid p-5 bg-warning">
-          <h1>Movie {id} Details</h1>
-          <p>Here will go all the movie details, but the reviews</p>
+          <h1>{title}</h1>
+          <p>{director}</p>
+          <p>{genre}</p>
+          <p>{release_year}</p>
+          <p>{abstract}</p>
+          <p>{image}</p>
         </div>
       </section>
-      <MovieReviewCardDeck />
+      <div className="container my-4 mx-auto w100 reviews_container">
+
+        {
+          reviews?.map((review) => {
+            const { movie_id, name, vote, text } = review;
+            return (
+
+              <div className="card text-start w100 m-4" key={movie_id + name}>
+                <div className="card-header">Review by <span>{name}</span></div>
+                <div className="card-body">
+                  <p className="card-text text-right">{vote}</p>
+                  <p className="card-text">{text}</p>
+                </div>
+              </div >
+            )
+          })
+        }
+
+
+      </div>
     </div>
   )
 }
