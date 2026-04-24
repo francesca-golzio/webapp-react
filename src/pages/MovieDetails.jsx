@@ -1,3 +1,4 @@
+import MovieReviewCard from "../components/MovieReviewCard";
 import { useState, useEffect } from "react";
 /* get movie id from URL */
 import { useParams } from "react-router-dom";
@@ -22,14 +23,11 @@ export default function MovieDetails() {
 
   if (loading) {
     console.log('loading');
-    return <p>Loading</p>
+    return <p>Loading</p> 
   }
 
   /* Destructuring datas about the book */
   let { title, director, genre, release_year, abstract, image, reviews = [] } = details;
-  console.log(title, director, genre, release_year, abstract, image, reviews);
-
-
 
   return (
     <div key={id + title}>
@@ -46,7 +44,8 @@ export default function MovieDetails() {
       </section>
       <div className="container my-4 mx-auto w100 reviews_container">
 
-        {
+        <MovieReviewCard />
+        {/* {
           reviews?.map((review) => {
             const { movie_id, name, vote, text } = review;
             return (
@@ -60,7 +59,7 @@ export default function MovieDetails() {
               </div >
             )
           })
-        }
+        } */}
 
 
       </div>
