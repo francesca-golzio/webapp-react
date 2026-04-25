@@ -1,7 +1,11 @@
+/* import context */
 import { useMovies } from "../context/MoviesContext";
+/* import other hooks */
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+/* import components  */
 import MovieReviewCardDeck from "../components/MovieReviewCardDeck";
+import MovieAddReview from "../components/MovieAddReview";
 import Loader from "../components/Loader";
 
 export default function MovieDetails() {
@@ -27,11 +31,11 @@ export default function MovieDetails() {
   let { title, director, genre, release_year, abstract, image, reviews = [] } = details;
 
   return (
-    <div key={id + title}>
+    <>
 
-{/* Movie details card // @todo ⚠️ */}
+      {/* Movie details card // @todo ⚠️ */}
       <section>
-        <div className="container-fluid p-5 bg-warning">
+        <div className="container-fluid p-5 bg-warning" key={id + title}>
           <h1>{title}</h1>
           <p>{director}</p>
           <p>{genre}</p>
@@ -40,9 +44,11 @@ export default function MovieDetails() {
           <p>{image}</p>
         </div>
       </section>
+      <MovieAddReview />
+      <div className="container reviews_container">
+        <MovieReviewCardDeck />
+      </div>
 
-      <MovieReviewCardDeck />
-
-    </div>
+    </>
   )
 }

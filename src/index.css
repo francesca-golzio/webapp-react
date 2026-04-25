@@ -4,9 +4,11 @@
 
 
 
-header{
+header {
   width: 100vw;
 }
+
+
 
 .card {
   width: 18rem;
@@ -18,10 +20,51 @@ header{
   }
 }
 
-.reviews_container{
+#review_form_section {
+  width: 100vw;
+  background-color: #01012bbb;
+
+  #review_form_container {
+    padding: 1rem;
+    max-width: 800px;
+
+    #review_form {
+      max-width: 85vw;
+      margin: 0 auto;
+
+      #voteLabel,
+      #usernameLabel,
+      #reviewLabel {
+        color: #ffc107;
+      }
+      #voteLabel {
+        width: 90%;
+      }
+
+      #username_field,
+      #review_field {
+        height: 2rem;
+      }
+
+      #review_vote_field {
+        margin-bottom: 0.5rem;
+
+        #voteValue {
+          font-weight: bold;
+          font-size: 1.5rem;
+        }
+
+      }
+    }
+  }
+}
+
+
+
+.reviews_container {
   width: 100vw;
 
-  .card{
+  .card {
     width: 100%;
 
     .card-header span {

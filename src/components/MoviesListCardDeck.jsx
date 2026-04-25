@@ -11,10 +11,7 @@ export default function MoviesListCardDeck() {
   return (
     <div className="container" key='card_deck'>
       <div className="row justify-content-evenly my-3">
-        {
-          /* cycle inside the movies array */
           <MoviesListCard />
-        }
       </div>
     </div>
   )
