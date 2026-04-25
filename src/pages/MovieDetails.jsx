@@ -2,12 +2,13 @@ import { useMovies } from "../context/MoviesContext";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MovieReviewCardDeck from "../components/MovieReviewCardDeck";
+import Loader from "../components/Loader";
 
 export default function MovieDetails() {
   /* Destructure the dynamic id parameter from the URL usinguseParams() */
   const { id } = useParams();
   /* destructure data from context */
-  const { details, setDetails } = useMovies();
+  const { details, setDetails, loading, setLoading } = useMovies();
 
   /* Movies details fetch */
   const movieDetailsAPI = (import.meta.env.VITE_MOVIE_DETAIL_API) // + /{id}
@@ -16,14 +17,11 @@ export default function MovieDetails() {
     fetch(movieDetailsAPI + '/' + id)
       .then(res => res.json())
       .then(data => setDetails(data))
-      .catch(err => console.error())
-      .finally(() => { console.log('loading') }  /* setLoading(false) */ );
+      .catch(err => console.error(err))
+      .finally(() => setLoading(false));
   }, [id]);
 
-/*   if (loading) { // @todo ⚠️
-    console.log('loading');
-    return <p>Loading</p>
-  } */
+  if (loading) return <Loader />;
 
   /* Destructuring datas about the book */
   let { title, director, genre, release_year, abstract, image, reviews = [] } = details;

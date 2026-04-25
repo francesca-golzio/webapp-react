@@ -4,17 +4,20 @@ import { useParams } from "react-router-dom";
 
 import { useMovies } from "../context/MoviesContext";
 
+import Loader from "../components/Loader";
+
 export default function MovieReviewCard() {
   /* Destructure the dynamic id parameter from the URL usinguseParams() */
   const { id } = useParams();
-  const { details } = useMovies();
+  /* destructure from context */
+  const { details, loading, setLoading } = useMovies();
 
+  useEffect(() => {
+    if(!details) setLoading(true);
+    else setLoading(false);
+  }, [details])
 
-  /* const [loading, setLoading] = useState(true); */ // @todo ⚠️
-  /* if (loading) { // @todo ⚠️
-    console.log('loading');
-    return <p>Loading</p>
-  } */
+  if(loading || !details) return <Loader />;
 
   /* Destructuring details about the book */
   let { title, director, genre, release_year, abstract, image, reviews = [] } = details;
