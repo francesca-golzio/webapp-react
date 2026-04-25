@@ -8,7 +8,8 @@ function MoviesProvider({ children }) {
   const [movies, setMovies] = useState([]);
   /* Movie details state and setter */
   const [details, setDetails] = useState({});
-  // const [loading, setLoading] = useState(true); // @todo ⚠️
+  /* Loader state and setter */
+  const [loading, setLoading] = useState(true);
 
   const movieListAPI = import.meta.env.VITE_MOVIES_LIST_API
   /* Movies list fetch */
@@ -20,10 +21,9 @@ function MoviesProvider({ children }) {
   }, []);
 
 
-
   return (
     <MoviesContext.Provider
-      value={{ movies, details, setDetails }}>
+      value={{ movies, details, setDetails, loading, setLoading }}>
       {children}
     </MoviesContext.Provider>
   )
