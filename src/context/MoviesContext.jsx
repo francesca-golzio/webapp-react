@@ -11,10 +11,11 @@ function MoviesProvider({ children }) {
   /* Loader state and setter */
   const [loading, setLoading] = useState(true);
 
-  const movieListAPI = import.meta.env.VITE_MOVIES_LIST_API
+
+  const moviesAPI = import.meta.env.VITE_MOVIES_API
   /* Movies list fetch */
   useEffect(() => {
-    fetch(movieListAPI)
+    fetch(moviesAPI)
       .then(res => res.json())
       .then(data => setMovies(data))
       .catch(err => console.log(err))
