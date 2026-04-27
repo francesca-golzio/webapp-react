@@ -15,10 +15,10 @@ export default function MovieDetails() {
   const { details, setDetails, loading, setLoading } = useMovies();
 
   /* Movies details fetch */
-  const movieDetailsAPI = (import.meta.env.VITE_MOVIE_DETAIL_API) // + /{id}
+  const moviesAPI = (import.meta.env.VITE_MOVIES_API) // + /{id}
 
   useEffect(() => {
-    fetch(movieDetailsAPI + '/' + id)
+    fetch(moviesAPI + '/' + id)
       .then(res => res.json())
       .then(data => setDetails(data))
       .catch(err => console.error(err))
